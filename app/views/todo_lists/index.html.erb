@@ -11,7 +11,7 @@
 
   <tbody>
     <% @todo_lists.each do |todo_list| %>
-      <tr>
+      <tr id="<%= dom_id(todo_list) %>"> <!-- el dom_id le agrega al html el string "todo_list_1" o el numero de id en la base de datos del registro -->
         <td><%= todo_list.title %></td>
         <td><%= todo_list.description %></td>
         <td><%= link_to 'Show', todo_list %></td>
