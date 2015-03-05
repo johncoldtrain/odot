@@ -25,6 +25,30 @@ describe "Completing todo items" do
 	end
 
 
+	context "with completed items" do
+		let!(:completed_todo_item) { todo_list.todo_items.create(content: "Eggs", completed_at: 5.minutes.ago ) }
+
+
+		it "shows completed items as completed" do
+			visit_todo_list(todo_list)
+			within("#todo_item_#{completed_todo_item.id}") do
+				expect(page).to have_content(completed_todo_item.completed_at)
+			end
+		end
+
+
+		it "does not give the option to mark complete" do
+			visit_todo_list(todo_list)
+			within("#todo_item_#{completed_todo_item.id}") do
+				expect(page).to_not have_content("Mark Complete")
+			end
+		end
+
+
+
+	end
+
+
 
 end
 

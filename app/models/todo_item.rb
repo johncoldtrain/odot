@@ -5,4 +5,9 @@ class TodoItem < ActiveRecord::Base
   						length: { minimum: 2 }
 
 
+  def completed? 
+  	!completed_at.blank?
+  end
+  
+
 end
