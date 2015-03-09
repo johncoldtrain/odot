@@ -44,7 +44,8 @@ describe UsersController do
       get :new, {}, valid_session
       assigns(:user).should be_a_new(User)
     end
-  end
+  end # Get New
+
 
   describe "GET edit" do
     it "assigns the requested user as @user" do
@@ -52,7 +53,8 @@ describe UsersController do
       get :edit, {:id => user.to_param}, valid_session
       assigns(:user).should eq(user)
     end
-  end
+  end # GET edit
+
 
   describe "POST create" do
     describe "with valid params" do
@@ -68,11 +70,25 @@ describe UsersController do
         assigns(:user).should be_persisted
       end
 
-      it "redirects to the created user" do
+      it "redirects to the todo list path" do
         post :create, {:user => valid_attributes}, valid_session
-        response.should redirect_to(User.last)
+        response.should redirect_to(todo_lists_path)
       end
-    end
+
+      it "sets the flash success message" do
+        post :create, {:user => valid_attributes}, valid_session
+        expect(flash[:success]).to eq("Thanks for signing up!")
+      end
+
+      it "sets the session user_id to the created user" do
+        post :create, {:user => valid_attributes}, valid_session
+        expect(session[:user_id]).to eq(User.find_by(email: valid_attributes["email"]).id)
+      end
+
+    end # POST create
+
+
+
 
     describe "with invalid params" do
       it "assigns a newly created but unsaved user as @user" do

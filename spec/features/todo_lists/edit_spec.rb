@@ -2,7 +2,15 @@ require 'spec_helper'
 
 describe "Editing todo lists" do
 
+	let(:user) { create(:user) }
+
 	let!(:todo_list) { TodoList.create(title: "Groceries", description: "Grocery List.") }
+
+	before do
+		sign_in user, password: "password"
+	end
+	# USES THE HELPER :sign_in METHOD IN authentication_helpers.rb
+
 
 	def update_todo_list(options={})
 		options[:title] ||= "My todo list"

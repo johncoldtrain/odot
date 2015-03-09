@@ -19,8 +19,28 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
 
+  # Added during course to include Factory Girl Gem
+  config.include FactoryGirl::Syntax::Methods
+
+  # Added during course, to use helper methods in spec/support/authentication_helpers.rb
+  config.include AuthenticationHelpers::Controller, type: :controller
+  config.include AuthenticationHelpers::Feature, type: :feature
+
+
+
+
+
   # To hide deprecation error message:
   config.expose_current_running_example_as :example
+
+
+
+
+
+
+
+
+
 
 
   

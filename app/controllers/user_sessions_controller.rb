@@ -1,10 +1,6 @@
 class UserSessionsController < ApplicationController
-
-
   def new
   end
-
-
 
   def create
   	user = User.find_by(email: params[:email])
@@ -17,6 +13,4 @@ class UserSessionsController < ApplicationController
   		render action: 'new'
   	end
   end
-
-
 end

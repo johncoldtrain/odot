@@ -30,6 +30,12 @@ describe TodoListsController do
   # TodoListsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    sign_in(build_stubbed(:user)) # <- USES THE HELPER :sign_in METHOD IN authentication_helpers.rb, also uses the 
+                                  # :build_stubbed method from the Factory Girl gem, defined in factories.rb
+  end
+
+
   describe "GET index" do
     it "assigns all todo_lists as @todo_lists" do
       todo_list = TodoList.create! valid_attributes

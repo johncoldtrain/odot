@@ -18,11 +18,12 @@ describe UserSessionsController do
 
 
 
-  # ---------------------->
+  # ============================>
   describe "POST 'create'" do
 
-    # ---------------------->
+    #------------------------------------->>>
     context "with correct credentials" do
+
       let!(:user) { User.create(first_name: "Alex", 
                                 last_name: "Romanillos", 
                                 email: "alex@email.com", 
@@ -58,49 +59,75 @@ describe UserSessionsController do
         expect(flash[:success]).to eq("Thanks for logging in!")
       end
 
-
     end # context: with correct credentials
 
 
 
-    # ---------------------->
-    context "with blank credentials" do
 
-      it "renders the new template" do
-        post :create, email: "", password: ""
-        expect(response).to render_template('new')
-      end
-
-      it "sets the flash error message" do
-        post :create, email: "", password: ""
-        expect(flash[:error]).to eq("There was a problem loggin in. Please check your email and password.")
-      end
-
-    end # context: with blank credentials
+    #------------------------------------->>>
+    context "with incorrect credentials" do
 
 
-    context "with an incorrect password" do
-      let!(:user) { User.create(first_name: "Alex", 
-                                last_name: "Romanillos", 
-                                email: "alex@email.com", 
-                                password: "password", 
-                                password_confirmation: "password") 
-      }
+      # //////////////////////////////////
+      shared_examples_for "denied login" do
+        it "renders the new template" do
+          post :create, email: email, password: password
+          expect(response).to render_template('new')
+        end
 
-      it "renders the new template" do
-        post :create, email: user.email, password: "wrong"
-        expect(response).to render_template('new')
-      end
+        it "sets the flash error message" do
+          post :create, email: email, password: password
+          expect(flash[:error]).to eq("There was a problem loggin in. Please check your email and password.")
+        end
 
-      it "sets the flash error message" do
-        post :create, email: user.email, password: "wrong"
-        expect(flash[:error]).to eq("There was a problem loggin in. Please check your email and password.")
-      end
+      end # shared_examples_for "denied login"
+      # //////////////////////////////////
 
 
-    end # context: with an incorrect password
+
+      # ---------------------->
+      context "with blank credentials" do
+        let(:email) { "" }
+        let(:password) { "" }
+        it_behaves_like "denied login"
+
+      end # context: with blank credentials
 
 
+      # ---------------------->
+      context "with an incorrect password" do
+        let!(:user) { User.create(first_name: "Alex", 
+                                  last_name: "Romanillos", 
+                                  email: "alex@email.com", 
+                                  password: "password", 
+                                  password_confirmation: "password") 
+        }
+
+        let(:email) { user.email }
+        let(:password) { "wrong" }
+        it_behaves_like "denied login"
+
+      end # context: with an incorrect password
+
+
+      # ---------------------->
+      context "with a non existent email" do
+        let!(:user) { User.create(first_name: "Alex", 
+                                  last_name: "Romanillos", 
+                                  email: "alex@email.com", 
+                                  password: "password", 
+                                  password_confirmation: "password") 
+        }
+
+        let(:email) { "someemail@email.com" }
+        let(:password) { "wrong" }
+        it_behaves_like "denied login"
+
+      end # context: with an incorrect password
+
+
+
+    end # with incorrect credentials
 
   end # describe POST create
 

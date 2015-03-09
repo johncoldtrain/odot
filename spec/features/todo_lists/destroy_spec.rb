@@ -2,7 +2,16 @@ require 'spec_helper'
 
 describe "Deleting todo lists" do
 
+	let(:user) { create(:user) }
+
 	let!(:todo_list) { TodoList.create(title: "Groceries", description: "Grocery List.") }
+
+	before do
+		sign_in user, password: "password"
+	end
+	# USES THE HELPER :sign_in METHOD IN authentication_helpers.rb
+
+
 
 	it "is successful when clicking the destroy link" do
 		

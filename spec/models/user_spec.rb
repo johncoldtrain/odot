@@ -36,7 +36,7 @@ describe User do
   	it "downcases an email before saving" do
   		user = User.new(valid_attributes)
   		user.email = "MIKE@TEAMTREEHOUSE.COM"
-  		expect(user.save).to be_true
+  		expect(user.save).to be_truthy
   		expect(user.email).to eq("mike@teamtreehouse.com")
   	end
 
