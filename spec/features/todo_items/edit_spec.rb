@@ -2,13 +2,12 @@ require 'spec_helper'
 
 describe "Editing todo items" do 
 
-	let(:user) { create(:user) }
-	before do
-		sign_in user, password: "password"
-	end
-	# USES THE HELPER :sign_in METHOD IN authentication_helpers.rb
-
-	let!(:todo_list) { TodoList.create(title: "Grocery list", description: "Groceries") }
+	######### FACTORY GIRL FACTORIES #########
+	# let(:user) { create(:user) } # not used
+	let(:user) { todo_list.user }
+	let!(:todo_list) { create(:todo_list) }
+	before { sign_in user, password: 'password' }
+	##########################################
 
 	let!(:todo_item) { todo_list.todo_items.create(content: "Milk") }
 

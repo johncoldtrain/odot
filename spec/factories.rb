@@ -10,4 +10,10 @@ FactoryGirl.define do
 	end
 
 
+	factory :todo_list do
+		title "Todo List Title"
+		description "Todo List description"
+		user
+	end
+
 end
