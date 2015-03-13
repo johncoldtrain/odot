@@ -31,6 +31,7 @@ describe "Editing todo lists" do
 
 
 	it "updates a todo list successfully with correct information" do
+		pending "Adding edit link for lists"
 		update_todo_list 	todo_list: todo_list, title: "New title"
 		
 		todo_list.reload
@@ -42,6 +43,7 @@ describe "Editing todo lists" do
 
 
 	it "displays an error with no title" do
+		pending "Adding edit link for lists"
 		update_todo_list todo_list: todo_list, title: ""
 
 		# check that title was not changed after reloading
@@ -55,6 +57,7 @@ describe "Editing todo lists" do
 
 
 	it "displays an error with too short title" do
+		pending "Adding edit link for lists"
 		update_todo_list todo_list: todo_list, title: "hi"
 		expect(page).to have_content("error")
 	end

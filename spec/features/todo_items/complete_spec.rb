@@ -14,7 +14,7 @@ describe "Completing todo items" do
 	def visit_todo_list(list)
 		visit "/todo_lists"
 		within "#todo_list_#{list.id}" do
-			click_link "List Items"
+			click_link list.title
 		end
 	end
 
@@ -34,10 +34,10 @@ describe "Completing todo items" do
 		let!(:completed_todo_item) { todo_list.todo_items.create(content: "Eggs", completed_at: 5.minutes.ago ) }
 
 
-		it "shows completed items as completed" do
+		it "shows an option to mark incomplete" do
 			visit_todo_list(todo_list)
 			within("#todo_item_#{completed_todo_item.id}") do
-				expect(page).to have_content(completed_todo_item.completed_at)
+				expect(page).to have_content("Mark Incomplete")
 			end
 		end
 

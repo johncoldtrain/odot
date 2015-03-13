@@ -15,11 +15,13 @@ describe "Deleting todo items" do
 	def visit_todo_list(list)
 		visit "/todo_lists"
 		within "#todo_list_#{list.id}" do
-			click_link "List Items"
+			click_link list.title
 		end
 	end
 
 	it "is successful" do
+		pending "Adding delete link"
+
 		visit_todo_list(todo_list)
 		within "#todo_item_#{todo_item.id}" do
 			click_link "Delete"

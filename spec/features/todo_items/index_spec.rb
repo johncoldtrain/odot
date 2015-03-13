@@ -13,14 +13,14 @@ describe "Viewing todo items" do
 	def visit_todo_list(list)
 		visit "/todo_lists"
 		within "#todo_list_#{list.id}" do
-			click_link "List Items"
+			click_link list.title
 		end
 	end
 
 
 	it "displays the title of the todo list" do
 		visit_todo_list(todo_list)
-		within("h1.title") do
+		within("h2.page-title") do
 			expect(page).to have_content(todo_list.title)
 		end
 	end
@@ -36,9 +36,9 @@ describe "Viewing todo items" do
 		
 		visit_todo_list(todo_list)
 		
-		expect(page.all("table.todo_items tbody tr").size).to eq(2)
+		expect(page.all("ul.todo-items li").size).to eq(2)
 
-		within "table.todo_items" do
+		within "ul.todo-items" do
 			expect(page).to have_content("Milk")
 			expect(page).to have_content("Eggs")
 		end

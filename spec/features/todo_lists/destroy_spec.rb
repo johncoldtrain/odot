@@ -16,6 +16,7 @@ describe "Deleting todo lists" do
 
 
 	it "is successful when clicking the destroy link" do
+		pending "Adding delete link for lists"
 		
 		visit "/todo_lists"
 		
