@@ -17,3 +17,7 @@
 
 # Ignore secrets key base
 /config/secrets.yml
+
+For Mac, security ---
+
+.DS_Store
