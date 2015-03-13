@@ -12,4 +12,10 @@ module ApplicationHelper
 		end
 		link_to "Add #{text}", path, class: "icon-new right hide-text"
 	end
+
+
+
+
+
+	
 end
