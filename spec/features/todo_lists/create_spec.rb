@@ -15,10 +15,10 @@ describe "Creating todo lists" do
 
 		visit "/todo_lists"
 		click_link "Add Todo List"
-		expect(page).to have_content("New Todo List")
+		expect(page).to have_content("Add a Todo List")
 
 		fill_in "Title", with: options[:title]
-		click_button "Create Todo list"
+		click_button "Save"
 	end
 
 	

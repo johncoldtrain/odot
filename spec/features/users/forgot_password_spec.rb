@@ -35,7 +35,7 @@ describe "Forgotten passwords" do
 		visit login_path
 		fill_in "Email", with: user.email
 		fill_in "Password", with: "newpassword"
-		click_button "Log In"
+		click_button "Sign In"
 		expect(page).to have_content("Thanks for logging in!")
 	end
 

@@ -18,6 +18,8 @@ class UserSessionsController < ApplicationController
   	end
   end
 
+  
+
   def destroy
     session[:user_id] = nil
     cookies.delete(:remember_me_token)
