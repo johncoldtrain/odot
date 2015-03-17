@@ -1,4 +1,4 @@
-$(document).ready ->
+toggleTodoListFunctions = ->
 	$('.todo-list-title').on 'click', (event) ->
 		event.preventDefault()
 		$functions = $('#todo-list-functions')
@@ -9,3 +9,6 @@ $(document).ready ->
 			$('.todo-list-title span').removeClass('fa-caret-up').addClass('fa-caret-down')
 			return $functions.slideUp('fast')
 			
+
+$(document).ready toggleTodoListFunctions
+$(document).on 'page:load', toggleTodoListFunctions
