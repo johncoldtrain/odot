@@ -11,6 +11,7 @@ gem 'bcrypt'
 # ----------- Added on Layouts and CSS Frameworks course ----------
 gem 'foundation-rails', '~> 5.2.2'
 # ----------------------------------------------------------
+gem 'font-awesome-rails', '~> 4.1.0.0'
 
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
