@@ -34,7 +34,7 @@ describe "Adding todo items" do
 		fill_in "Content", with: ""
 		click_button "Save"
 
-		within("div.flash") do
+		within("div.alert-box") do
 			expect(page).to have_content("There was a problem adding that todo list item.")
 		end
 		expect(page).to have_content(/can't be blank/i)
@@ -46,7 +46,7 @@ describe "Adding todo items" do
 		fill_in "Content", with: "1"
 		click_button "Save"
 
-		within("div.flash") do
+		within("div.alert-box") do
 			expect(page).to have_content("There was a problem adding that todo list item.")
 		end
 		expect(page).to have_content(/is too short/i)

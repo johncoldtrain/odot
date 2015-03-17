@@ -96,9 +96,9 @@ describe TodoListsController do
         assigns(:todo_list).should be_persisted
       end
 
-      it "redirects to the created todo_list" do
+      it "redirects to todo_lists index" do
         post :create, {:todo_list => valid_attributes}, valid_session
-        response.should redirect_to(TodoList.last)
+        response.should redirect_to(todo_lists_path)
       end
 
       it "creates a todo list for the current user" do
