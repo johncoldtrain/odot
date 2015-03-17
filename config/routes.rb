@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   resources :todo_lists do
+    put :email, on: :member #for email action in todo_lists_controler
     resources :todo_items do
       member do 
         patch :complete

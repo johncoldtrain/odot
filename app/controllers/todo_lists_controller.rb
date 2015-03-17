@@ -1,6 +1,6 @@
 class TodoListsController < ApplicationController
   before_action :require_user
-  before_action :set_todo_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_list, only: [:show, :edit, :update, :destroy, :email]
   before_action :set_back_link, except: [:index]
 
   # GET /todo_lists
@@ -23,6 +23,7 @@ class TodoListsController < ApplicationController
   def edit
   end
 
+
   # POST /todo_lists
   # POST /todo_lists.json
   def create
@@ -39,6 +40,7 @@ class TodoListsController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /todo_lists/1
   # PATCH/PUT /todo_lists/1.json
   def update
@@ -53,6 +55,7 @@ class TodoListsController < ApplicationController
     end
   end
 
+
   # DELETE /todo_lists/1
   # DELETE /todo_lists/1.json
   def destroy
@@ -63,6 +66,22 @@ class TodoListsController < ApplicationController
     end
   end
 
+
+  def email
+    destination = params[:to]
+    notifier = Notifier.todo_list(@todo_list, destination)
+
+    if notifier.deliver && destination =~ /@/
+      redirect_to todo_list_todo_items_path(@todo_list), success: "The list was sent successfully."
+    else
+      redirect_to todo_list_todo_items_path(@todo_list), failure: "The list could not be sent."
+    end
+  end
+
+
+
+
+#####################################################
   private
 
     def set_back_link
