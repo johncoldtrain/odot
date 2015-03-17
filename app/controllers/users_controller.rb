@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.create_default_lists # <- Calling the first time list for the tutorial from user model
         session[:user_id] = @user.id
         format.html { redirect_to todo_lists_path, success: 'Thanks for signing up!' }
         format.json { render :show, status: :created, location: @user }
