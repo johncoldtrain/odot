@@ -1,5 +1,5 @@
 <%= title "Add Todo Item, #{@todo_list.title}" %>
 
-<%= form_for [@todo_list, @todo_item] do |form| %>
-  <%= render partial: form %>
+<%= form_for [@todo_list, @todo_item], builder: FoundationFormBuilder do |form| %>
+  <%= render partial: 'form', locals: { form: form } %> <!-- send variables to form -->
 <% end %>

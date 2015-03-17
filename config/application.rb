@@ -12,6 +12,11 @@ module Odot
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+# ADDED ON RUBY ON RAIL FORMS COURSE 
+#####################################
+    config.autoload_paths += %W( #{config.root}/lib )
+#####################################
+
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
@@ -21,6 +26,12 @@ module Odot
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w( vendor/modernizr.js )
+
+# ADDED ON RUBY ON RAIL FORMS COURSE 
+#####################################
+    config.action_view.field_error_proc = Proc.new {|html, instance| html}
+    # To remove the default field error formatting in the builders
+#####################################
 
   end
 end

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 					format: {
 						with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
 					}
+	validates :first_name, :last_name, presence: true
 
 
 	before_save :downcase_email

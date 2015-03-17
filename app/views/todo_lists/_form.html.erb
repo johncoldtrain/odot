@@ -1,32 +1,9 @@
-<%= form_for(@todo_list) do |f| %>
-  <% if @todo_list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@todo_list.errors.count, "error") %> prohibited this todo_list from being saved:</h2>
 
-      <ul>
-      <% @todo_list.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@todo_list, builder: FoundationFormBuilder) do |f| %>
+  <!-- Calling the custom form builder FoundationFormBuilder located in lib/foundation_form_builder.rb -->
 
-<div class="row">
-  <div class="small-12 columns">
-    <%= f.label :title, label: "List Title", autofocus: "autofocus" %>
-  </div>
-</div>
+  <%= f.text_field :title, label: "List Title", autofocus: "autofocus" %>
 
-<div class="row">
-  <div class="small-12 columns">
-    <%= f.text_field :title %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="small-12 columns">
-    <%= f.submit "Save", class: "button radius expand" %>
-  </div>
-</div>
+  <%= f.submit "Save" %>
 
 <% end %>
