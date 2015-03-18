@@ -16,13 +16,10 @@ describe "Deleting todo lists" do
 
 
 	it "is successful when clicking the destroy link" do
-		pending "Adding delete link for lists"
-		
 		visit "/todo_lists"
+		click_link todo_list.title
 		
-		within "#todo_list_#{todo_list.id}" do
-			click_link "Destroy"
-		end
+		click_link "Delete"
 
 		expect(page).to_not have_content(todo_list.title)
 		expect(TodoList.count).to eq(0)

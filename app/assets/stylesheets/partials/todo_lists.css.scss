@@ -1,6 +1,7 @@
 .todo-lists li a {
 	display: block;
-	padding: 0.4em 1em 0.4em 0em;
+	padding-top: 0.4em;
+	padding-right: 1em;
 	.label {
 		background-color: $orange;
 	}

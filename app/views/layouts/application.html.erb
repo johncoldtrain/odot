@@ -16,7 +16,7 @@
 
 
   <header class="row global-header">
-    <div class="small-12 small-centered medium-8 medium-centered large-5 large-centered columns">
+    <div class="small-12 small-centered medium-8 medium-centered large-7 large-centered columns">
       <% if logged_in? %>
         <!-- ############# Partial added ################ -->
         <%= render partial: 'layouts/header_logged_in' %>
@@ -30,13 +30,13 @@
   </header>
 
   <div class="row collapse">
-    <div class="small-12 small-centered medium-8 medium-centered large-5 large-centered columns">
+    <div class="small-12 small-centered medium-8 medium-centered large-7 large-centered columns">
       <%= yield %>
     </div>
   </div>
 
   <footer class="row global-footer">
-    <div class="small-12 small-centered medium-8 medium-centered large-5 large-centered columns text-center">
+    <div class="small-12 small-centered medium-8 medium-centered large-7 large-centered columns text-center">
       <% if logged_in? %>
         <%= link_to "Account Settings", edit_user_path(current_user) %>
       <% end %>
