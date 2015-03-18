@@ -20,18 +20,16 @@ describe "Editing todo lists" do
 		todo_list = options[:todo_list]
 
 		visit "/todo_lists"
-		within "#todo_list_#{todo_list.id}" do
-			click_link "Edit"
-		end
+		click_link todo_list.title
+		click_link "Edit"
 
 		fill_in "Title", with: options[:title]
-		click_button "Update Todo list"
+		click_button "Save"
 	end
 
 
 
 	it "updates a todo list successfully with correct information" do
-		pending "Adding edit link for lists"
 		update_todo_list 	todo_list: todo_list, title: "New title"
 		
 		todo_list.reload
@@ -43,7 +41,6 @@ describe "Editing todo lists" do
 
 
 	it "displays an error with no title" do
-		pending "Adding edit link for lists"
 		update_todo_list todo_list: todo_list, title: ""
 
 		# check that title was not changed after reloading
@@ -52,14 +49,13 @@ describe "Editing todo lists" do
 		expect(todo_list.title).to eq(title)
 
 		# test for error presence 
-		expect(page).to have_content("error")
+		expect(page).to have_content(/can't be blank/i)
 	end
 
 
 	it "displays an error with too short title" do
-		pending "Adding edit link for lists"
 		update_todo_list todo_list: todo_list, title: "hi"
-		expect(page).to have_content("error")
+		expect(page).to have_content(/is too short/i)
 	end
 
 

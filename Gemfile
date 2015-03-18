@@ -61,11 +61,18 @@ end
 # To be able to bundle install the pg gem, I had to download from http://postgresapp.com
 # the Postgres.app and added it to the applications folder
 # Then ran:
-# =>  gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+# =>  gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config 
 
+<<<<<<< HEAD
   ################# CHANGE IN CONFIG/ENVIRONMENTS/PRODUCTION.RB ####################
   # config.serve_static_assets = true
   #######################################################################
+=======
+# For iMac I had to use:
+# $ sudo su
+# $ env ARCHFLAGS="-arch x86_64" em install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+
+>>>>>>> 04b0418d14c9cab790db96fc1a6a548df140117b
 #-------------
 
 
