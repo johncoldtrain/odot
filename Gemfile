@@ -13,7 +13,7 @@ gem 'foundation-rails', '~> 5.2.2'
 # ----------------------------------------------------------
 gem 'font-awesome-rails', '~> 4.1.0.0'
 
-gem 'sqlite3'
+
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -37,12 +37,13 @@ end
 # GROUPS, FOR DEVELOPMENT AND TEST
 
 group :development, :test do
+	gem 'sqlite3'
 	gem 'rspec-rails', '~> 2.0'
 	gem 'factory_girl_rails', '~>4.0'
 end
 
 
-#GROUPS FOR TEST ONLY
+#GROUP FOR TEST ONLY
 
 group :test do 
 	gem 'capybara', '~> 2.1.0'
@@ -50,6 +51,12 @@ group :test do
 	gem 'shoulda-matchers'
 end
 
+
+#GROUP FOR PRODUCTION !!
+
+group :production do
+	gem 'pg', '~> 0.18.0'
+end
 
 #-------------
 
