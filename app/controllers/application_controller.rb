@@ -7,9 +7,8 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
 
-
-
   private
+
 
   def go_back_link_to(path)
     @go_back_link_to ||= path
