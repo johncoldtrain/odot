@@ -63,7 +63,9 @@ end
 # Then ran:
 # =>  gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
 
-
+  ################# CHANGE IN CONFIG/ENVIRONMENTS/PRODUCTION.RB ####################
+  # config.serve_static_assets = true
+  #######################################################################
 #-------------
 
 
