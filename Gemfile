@@ -58,6 +58,12 @@ group :production do
 	gem 'pg', '~> 0.18.0'
 end
 
+# To be able to bundle install the pg gem, I had to download from http://postgresapp.com
+# the Postgres.app and added it to the applications folder
+# Then ran:
+# =>  gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
+
+
 #-------------
 
 
