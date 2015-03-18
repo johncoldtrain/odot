@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
+<body class="home">
   <!-- Flash Partial -->
   <%= render partial: "layouts/flash" %>
 
@@ -20,14 +20,14 @@
     </div>
   </header>
 
-  <div class="row">
-    <div class="small-12 small-centered columns">
-      <%= yield %>
-    </div>
-  </div>
+
+
+  <%= yield %>
+
+
 
   <footer class="row global-footer">
-    <div class="small-12 small-centered columns">
+    <div class="small-12 small-centered columns text-center">
       <%= link_to "Already have an account? Sign in", login_path %>
     </div>
   </footer>
