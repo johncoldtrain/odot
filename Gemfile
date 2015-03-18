@@ -63,20 +63,17 @@ end
 # Then ran:
 # =>  gem install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
   ################# CHANGE IN CONFIG/ENVIRONMENTS/PRODUCTION.RB ####################
   # config.serve_static_assets = true
   #######################################################################
 
->>>>>>> 04b0418d14c9cab790db96fc1a6a548df140117b
+
 # For iMac I had to use:
 # $ sudo su
 # $ env ARCHFLAGS="-arch x86_64" em install pg -- --with-pg-config=/Applications/Postgres.app/Contents/Versions/9.4/bin/pg_config
 
-<<<<<<< HEAD
->>>>>>> 04b0418d14c9cab790db96fc1a6a548df140117b
->>>>>>> 04b0418d14c9cab790db96fc1a6a548df140117b
+
 #-------------
 
 
